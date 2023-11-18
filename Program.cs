@@ -48,9 +48,9 @@ var autoMapper = new MapperConfiguration(item=> item.AddProfile(new AutoMapperHa
 IMapper mapper = autoMapper.CreateMapper();
 builder.Services.AddSingleton(mapper);
 
-var logger = new LoggerConfiguration().WriteTo.File("C:\\Users\\schit\\OneDrive\\MIB\\WatchLog.log", rollingInterval:RollingInterval.Day)
+var logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).Enrich.FromLogContext()
 .CreateLogger();
-builder.Logging.AddSerilog();
+builder.Logging.AddSerilog(logger);
 
 var _jwtSettings = builder.Configuration.GetSection("JwtSettings");
 builder.Services.Configure<JwtSettings>(_jwtSettings);

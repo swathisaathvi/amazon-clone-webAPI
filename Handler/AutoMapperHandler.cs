@@ -2,7 +2,7 @@ using AutoMapper;
 using amazonCloneWebAPI.Entity;
 using amazonCloneWebAPI.Models;
 
-// namespace amazonCloneWebAPI.Handler;
+namespace amazonCloneWebAPI.Handler; //file scoped namespace. This is available from c# 10
 
 public class AutoMapperHandler: Profile {
     public AutoMapperHandler(){

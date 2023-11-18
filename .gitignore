@@ -1,0 +1,8 @@
+# Ignore Visual Studio files
+.vs/
+.vscode/
+
+# Ignore build output folders
+bin/
+obj/
+publish/
