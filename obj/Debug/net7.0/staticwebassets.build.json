@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "akGJk9cmqjBM2IJgprWvq1wrm7SQ/ufPGy5uzwevOsA=",
+  "Source": "amazonCloneWebAPI",
+  "BasePath": "_content/amazonCloneWebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
