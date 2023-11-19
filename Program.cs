@@ -9,6 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AutoMapper;
 using Serilog;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,18 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IAuthorizationHandler, CustomRolesAuthorizationHandler>();
+builder.Services.AddAuthorization(options => 
+    {
+        options.AddPolicy("DevelopmentPolicy", policy =>{
+            policy.Requirements.Add(new CustomRolesRequirement(new[] {"Admin","User"}));
+        });
+        options.AddPolicy("AdminToCreateProduct", policy =>{
+            policy.Requirements.Add(new CustomRolesRequirement(new[] {"Admin"}));
+        });
+    }
+);
 
 //This is for JWT Authentication
 var _authKey = builder.Configuration.GetValue<string>("JwtSettings:securityKey");

@@ -19,15 +19,6 @@ public class ProductContainer: IProductContainer
         List<ProductEntity> resp = new List<ProductEntity>();
         var product =  await _DBContext.Products.ToListAsync();
         resp = _mapper.Map<List<Product>, List<ProductEntity>>(product);
-        //The below code will be replaced with the Auto Mapper
-        // if(product !=null){
-        //     product.ForEach(item=> {
-        //         resp.Add(new ProductEntity(){
-        //             ProductId = item.ProductId,
-        //             ProductName = item.ProductName
-        //         });
-        //     });
-        // }
         return resp;
     }
 

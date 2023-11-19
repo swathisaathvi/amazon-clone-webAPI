@@ -8,7 +8,7 @@ using Serilog;
 
 namespace amazonCloneWebAPI.Controllers;
 
-// [Authorize(Roles="Admin")]
+[Authorize(Policy = "DevelopmentPolicy")]
 [ApiController]
 [Route("[controller]")]
 public class ProductController : ControllerBase
@@ -33,20 +33,20 @@ public class ProductController : ControllerBase
 
     [HttpGet("GetByCode/{productId}")]
     public async Task<IActionResult> GetByProductId(int productId){
-        int c = Convert.ToInt32(productId);
-        var product = await _container.GetByProductId(c);
+        var product = await _container.GetByProductId(productId);
         return Ok(product);
     }
 
     [HttpDelete("DeleteProduct/{productId}")]
     public async Task<IActionResult> DeleteProduct(int productId){
-        var product = await _container.DeleteProduct(productId);
+        await _container.DeleteProduct(productId);
         return Ok(true);
     }
 
-    [HttpPost("Create")]
+    [Authorize(Policy = "AdminToCreateProduct")]
+    [HttpPost("SaveProduct")]
     public async Task<IActionResult> SaveProduct([FromBody] ProductEntity product){
-        var productDetails = await _container.SaveProduct(product);
+        await _container.SaveProduct(product);
         return Ok(true);
     }
 
