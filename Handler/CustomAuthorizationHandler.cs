@@ -13,7 +13,7 @@ public class CustomRolesAuthorizationHandler : AuthorizationHandler<CustomRolesR
 
     protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, CustomRolesRequirement requirement)
     {
-        if (_environment.IsProduction())
+        if (_environment.IsDevelopment())
         {
             context.Succeed(requirement);
             return Task.CompletedTask;

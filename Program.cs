@@ -2,7 +2,7 @@ using amazonCloneWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using amazonCloneWebAPI.Handler;
-using amazonCloneWebAPI.Container;
+using amazonCloneWebAPI.ProudctServices;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.IdentityModel.Tokens;
@@ -54,7 +54,7 @@ builder.Services.AddDbContext<AmazonCloneContext>(options=>{
     options.UseSqlServer(builder.Configuration.GetConnectionString("constring"));
 });
 
-builder.Services.AddScoped<IProductContainer, ProductContainer>();
+builder.Services.AddScoped<IProductServices, ProductServices>();
 builder.Services.AddScoped<IRefreshTokenGenerator, RefreshTokenGenerator>();
 
 var autoMapper = new MapperConfiguration(item=> item.AddProfile(new AutoMapperHandler()));

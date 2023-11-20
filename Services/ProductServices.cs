@@ -1,16 +1,16 @@
-using amazonCloneWebAPI.Entity;
 using amazonCloneWebAPI.Models;
+using amazonCloneWebAPI.Models.Entity;
 using AutoMapper;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
-namespace amazonCloneWebAPI.Container;
-public class ProductContainer: IProductContainer
+namespace amazonCloneWebAPI.ProudctServices;
+public class ProductServices: IProductServices
 {
     private readonly AmazonCloneContext _DBContext;
     private readonly IMapper _mapper;
 
-    public ProductContainer(AmazonCloneContext dBContext, IMapper mapper){
+    public ProductServices(AmazonCloneContext dBContext, IMapper mapper){
         this._DBContext = dBContext;
         _mapper = mapper;
     }

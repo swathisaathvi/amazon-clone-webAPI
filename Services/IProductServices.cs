@@ -1,9 +1,9 @@
-
-using amazonCloneWebAPI.Entity;
 using amazonCloneWebAPI.Models;
-namespace amazonCloneWebAPI.Container;
+using amazonCloneWebAPI.Models.Entity;
 
-public interface IProductContainer{
+namespace amazonCloneWebAPI.ProudctServices;
+
+public interface IProductServices{
     Task<List<ProductEntity>> GetAllProducts();
     Task<ProductEntity>GetByProductId(int code);
     Task<bool> DeleteProduct(int code);

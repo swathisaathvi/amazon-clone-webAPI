@@ -1,6 +1,6 @@
 using AutoMapper;
-using amazonCloneWebAPI.Entity;
 using amazonCloneWebAPI.Models;
+using amazonCloneWebAPI.Models.Entity;
 
 namespace amazonCloneWebAPI.Handler; //file scoped namespace. This is available from c# 10
 

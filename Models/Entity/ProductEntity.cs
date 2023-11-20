@@ -1,4 +1,4 @@
-namespace amazonCloneWebAPI.Entity;
+namespace amazonCloneWebAPI.Models.Entity;
 public class ProductEntity
 {
     public int ProductId { get; set; }
@@ -8,5 +8,5 @@ public class ProductEntity
     public decimal? ProductPrice { get; set; }
 
     public string? Category { get; set; }
-    public string? Status {get; set;}
+    public string? Status { get; set; }
 }

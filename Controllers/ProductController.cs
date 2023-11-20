@@ -1,6 +1,6 @@
-using amazonCloneWebAPI.Container;
-using amazonCloneWebAPI.Entity;
+using amazonCloneWebAPI.ProudctServices;
 using amazonCloneWebAPI.Models;
+using amazonCloneWebAPI.Models.Entity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +14,10 @@ namespace amazonCloneWebAPI.Controllers;
 public class ProductController : ControllerBase
 {
 
-    private readonly IProductContainer _container;
-    private readonly ILogger<ProductContainer> _logger;
+    private readonly IProductServices _container;
+    private readonly ILogger<ProductServices> _logger;
 
-    public ProductController(IProductContainer container, ILogger<ProductContainer> logger)
+    public ProductController(IProductServices container, ILogger<ProductServices> logger)
     {
         _container = container;
         _logger = logger;
